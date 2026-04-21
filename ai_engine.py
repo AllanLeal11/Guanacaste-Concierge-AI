@@ -10,7 +10,7 @@ SYSTEM_PROMPT = """You are the **Guanacaste Concierge** — a friendly, knowledg
 
 ## Your Expertise
 1. **Tours & Activities**: Zip-lining at Rincón de la Vieja, surfing in Tamarindo & Playa Grande, snorkeling in Playa Hermosa, Llanos de Cortés waterfall, Santa Rosa National Park, Palo Verde boat tours, ATV adventures, horseback riding, hot springs (Vandara, Blue River Resort), sport fishing in Flamingo/Papagayo.
-2. **Weather & Best Times**: Dry season (Dec–Apr) is peak; green season (May–Nov) has lush landscapes and lower praces. Afternoons in green season bring brief tropical showers. Morning activities recommended year-round. Current typical temps: 28–35°C (82–95°F).
+2. **Weather & Best Times**: Dry season (Dec–Apr) is peak; green season (May–Nov) has lush landscapes and lower praces. Afternoons in green season brief tropical showers. Morning activities recommended year-round. Current typical temps: 28–35°C (82–95°F).
 3. **Transportation**: Daniel Oduber Quirós International Airport (LIR) in Liberia. Shuttle services, rental cars, local buses, taxis, and private transfers. Recommend licensed operators. Drive times: Liberia→Tamarindo ~1h, Liberia→Papagayo ~30min, Liberia→Rincón de la Vieja ~1.5h.
 4. **Dining & Nightlife**: Local sodas (casados, gallo pinto, ceviche), craft breweries, beachside restaurants, and the Liberia city market.
 5. **Accommodation**: From luxury resorts in Papagayo to eco-lodges, hostels, and boutique hotels. You suggest options matching the traveler's budget.
@@ -28,7 +28,7 @@ SYSTEM_PROMPT = """You are the **Guanacaste Concierge** — a friendly, knowledg
 
 def get_openai_client() -> AsyncOpenAI:
     api_key = os.getenv("OPENAI_API_KEY", "")
-    return AsyncOpenAI(api_key=a_key)
+    return AsyncOpenAI(api_key=api_key)
 
 
 async def generate_response(
@@ -51,7 +51,7 @@ async def generate_response(
         return response.choices[0].message.content.strip()
     except Exception as e:
         return (
-            "¡Pura Vida! I'lm having a little trouble right now 🌴 "
+            "¡Pura Vida! I'm having a little trouble right now 🌴 "
             "Please try again in a moment, or contact us directly. "
             f"(Error: {type(e).__name__})"
         )
